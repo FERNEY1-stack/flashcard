@@ -2,8 +2,8 @@
 
 Aplicación web para crear tarjetas de estudio, repasarlas con repetición espaciada (sistema de 5 niveles) y consultar el progreso.
 
-- **Aplicación publicada:** `PEGAR_AQUI_LA_URL_DE_RENDER`
-- **Repositorio:** `PEGAR_AQUI_LA_URL_DE_GITHUB`
+- **Aplicación publicada:** `https://flashcard-der2.onrender.com`
+- **Repositorio:** `https://github.com/FERNEY1-stack/flashcard.git`
 - **Diagrama de componentes:** [`docs/diagrama-componentes.png`](docs/diagrama-componentes.png)
 
 ## Tecnologías
