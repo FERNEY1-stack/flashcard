@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" font-family="DejaVu Sans, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#33384f"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1b7a4b"/></marker>
+  </defs>
+  <rect width="1200" height="800" fill="#ffffff"/>
+  <text x="600" y="38" text-anchor="middle" font-size="22" font-weight="700" fill="#20243a">Diagrama de componentes: Flashcards</text>
+  <text x="600" y="58" text-anchor="middle" font-size="13" fill="#4a4f66">Node.js + Express + Bootstrap · frontend y backend publicados en un solo servicio de Render</text>
+
+  <!-- NAVEGADOR -->
+  <rect x="30" y="75" width="560" height="620" rx="16" fill="#f3f1ff" stroke="#6256d9" stroke-width="2"/>
+  <text x="50" y="100" font-size="15" font-weight="700" fill="#3f35a8">NAVEGADOR (cliente)</text>
+
+  <rect x="60" y="115" width="500" height="62" rx="10" fill="#fff" stroke="#6256d9"/>
+  <text x="310" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">index.html (vista única con 3 secciones)</text>
+  <text x="310" y="160" text-anchor="middle" font-size="12" fill="#4a4f66">Bootstrap 5.3.8 por CDN (jsDelivr) · viewport · tema claro/oscuro</text>
+
+  <rect x="60" y="205" width="500" height="55" rx="10" fill="#fff" stroke="#6256d9"/>
+  <text x="310" y="229" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">app.mjs</text>
+  <text x="310" y="248" text-anchor="middle" font-size="12" fill="#4a4f66">eventos con addEventListener y delegación</text>
+
+  <rect x="60" y="305" width="235" height="62" rx="10" fill="#fff" stroke="#6256d9"/>
+  <text x="177" y="330" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">ui.mjs</text>
+  <text x="177" y="350" text-anchor="middle" font-size="12" fill="#4a4f66">dibuja el DOM (textContent)</text>
+
+  <rect x="325" y="305" width="235" height="62" rx="10" fill="#fff" stroke="#6256d9"/>
+  <text x="442" y="330" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">cards.mjs</text>
+  <text x="442" y="350" text-anchor="middle" font-size="12" fill="#4a4f66">reglas de repaso espaciado</text>
+
+  <rect x="60" y="410" width="235" height="62" rx="10" fill="#fff" stroke="#6256d9"/>
+  <text x="177" y="435" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">storage.mjs</text>
+  <text x="177" y="455" text-anchor="middle" font-size="12" fill="#4a4f66">lee y escribe el navegador</text>
+
+  <rect x="325" y="410" width="235" height="62" rx="10" fill="#fff" stroke="#6256d9"/>
+  <text x="442" y="435" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">api.mjs</text>
+  <text x="442" y="455" text-anchor="middle" font-size="12" fill="#4a4f66">fetch + async/await + try/catch</text>
+
+  <rect x="60" y="520" width="235" height="95" rx="10" fill="#fff8e6" stroke="#b9831a"/>
+  <text x="177" y="545" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">Almacenamiento web</text>
+  <text x="177" y="568" text-anchor="middle" font-size="12" fill="#4a4f66">localStorage: tema y copia</text>
+  <text x="177" y="586" text-anchor="middle" font-size="12" fill="#4a4f66">de las tarjetas (respaldo)</text>
+  <text x="177" y="604" text-anchor="middle" font-size="12" fill="#4a4f66">sessionStorage: progreso</text>
+
+  <!-- flechas internas del cliente -->
+  <line x1="310" y1="260" x2="310" y2="385" stroke="#33384f" stroke-width="1.6"/>
+  <line x1="310" y1="336" x2="297" y2="336" stroke="#33384f" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="310" y1="336" x2="323" y2="336" stroke="#33384f" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="177" y1="385" x2="442" y2="385" stroke="#33384f" stroke-width="1.6"/>
+  <line x1="177" y1="385" x2="177" y2="408" stroke="#33384f" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="442" y1="385" x2="442" y2="408" stroke="#33384f" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="177" y1="472" x2="177" y2="518" stroke="#33384f" stroke-width="1.6" marker-end="url(#a)"/>
+  <polyline points="60,336 50,336 50,146 58,146" fill="none" stroke="#33384f" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text transform="translate(43,300) rotate(-90)" font-size="11" fill="#33384f">actualiza el DOM</text>
+  <circle cx="310" cy="285" r="11" fill="#6256d9"/><text x="310" y="289" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">1</text>
+  <circle cx="50" cy="215" r="11" fill="#1b7a4b"/><text x="50" y="219" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">5</text>
+
+  <!-- RENDER -->
+  <rect x="680" y="75" width="490" height="620" rx="16" fill="#eefaf3" stroke="#1b7a4b" stroke-width="2"/>
+  <text x="700" y="100" font-size="15" font-weight="700" fill="#155c39">RENDER: un solo servicio Node.js (URL pública)</text>
+
+  <rect x="710" y="115" width="430" height="58" rx="10" fill="#fff" stroke="#1b7a4b"/>
+  <text x="925" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">server.mjs (Express)</text>
+  <text x="925" y="160" text-anchor="middle" font-size="12" fill="#4a4f66">compression · CORS restringido · express.json</text>
+
+  <rect x="710" y="205" width="205" height="58" rx="10" fill="#fff" stroke="#1b7a4b"/>
+  <text x="812" y="230" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">public/</text>
+  <text x="812" y="250" text-anchor="middle" font-size="12" fill="#4a4f66">HTML, CSS min y .mjs</text>
+
+  <rect x="935" y="205" width="205" height="58" rx="10" fill="#fff" stroke="#1b7a4b" stroke-dasharray="5 3"/>
+  <text x="1037" y="230" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">Variables de entorno</text>
+  <text x="1037" y="250" text-anchor="middle" font-size="12" fill="#4a4f66">PORT · FRONTEND_URL</text>
+
+  <rect x="710" y="295" width="430" height="170" rx="10" fill="#fff" stroke="#1b7a4b"/>
+  <text x="925" y="318" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">cards.routes.mjs (rutas JSON)</text>
+  <text x="730" y="346" font-size="12" font-family="DejaVu Sans Mono, monospace" fill="#20243a">GET    /api/cards       → 200</text>
+  <text x="730" y="368" font-size="12" font-family="DejaVu Sans Mono, monospace" fill="#20243a">POST   /api/cards       → 201 / 400</text>
+  <text x="730" y="390" font-size="12" font-family="DejaVu Sans Mono, monospace" fill="#20243a">PUT    /api/cards/:id   → 200 / 400 / 404</text>
+  <text x="730" y="412" font-size="12" font-family="DejaVu Sans Mono, monospace" fill="#20243a">DELETE /api/cards/:id   → 200 / 404</text>
+  <text x="730" y="434" font-size="12" font-family="DejaVu Sans Mono, monospace" fill="#20243a">GET    /api/health      → 200</text>
+  <text x="925" y="456" text-anchor="middle" font-size="11" fill="#4a4f66">(rutas /api desconocidas → 404 en JSON)</text>
+
+  <rect x="710" y="495" width="430" height="58" rx="10" fill="#fff" stroke="#1b7a4b"/>
+  <text x="925" y="520" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">cards.controller.mjs + validation.mjs</text>
+  <text x="925" y="540" text-anchor="middle" font-size="12" fill="#4a4f66">valida la entrada y lee/escribe los datos</text>
+
+  <rect x="710" y="583" width="430" height="58" rx="10" fill="#fff8e6" stroke="#b9831a"/>
+  <text x="925" y="608" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">data/cards.json</text>
+  <text x="925" y="628" text-anchor="middle" font-size="12" fill="#4a4f66">archivo donde el servidor guarda las tarjetas</text>
+
+  <!-- flechas internas del servidor -->
+  <line x1="812" y1="173" x2="812" y2="203" stroke="#33384f" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="1037" y1="205" x2="1037" y2="175" stroke="#33384f" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <line x1="925" y1="173" x2="925" y2="293" stroke="#33384f" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="925" y1="465" x2="925" y2="493" stroke="#33384f" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="925" y1="553" x2="925" y2="581" stroke="#33384f" stroke-width="1.6" marker-start="url(#a)" marker-end="url(#a)"/>
+  <circle cx="960" cy="479" r="11" fill="#1b7a4b"/><text x="960" y="483" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">3</text>
+
+  <!-- fetch cliente -> servidor -->
+  <line x1="560" y1="428" x2="708" y2="428" stroke="#33384f" stroke-width="2.2" marker-end="url(#a)"/>
+  <line x1="708" y1="452" x2="562" y2="452" stroke="#1b7a4b" stroke-width="2.2" marker-end="url(#b)"/>
+  <rect x="592" y="408" width="86" height="18" fill="#fff"/>
+  <text x="635" y="421" text-anchor="middle" font-size="12" font-weight="700" fill="#33384f">fetch</text>
+  <rect x="592" y="456" width="86" height="18" fill="#fff"/>
+  <text x="635" y="469" text-anchor="middle" font-size="12" font-weight="700" fill="#1b7a4b">JSON</text>
+  <circle cx="635" cy="392" r="11" fill="#6256d9"/><text x="635" y="396" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">2</text>
+  <circle cx="635" cy="490" r="11" fill="#1b7a4b"/><text x="635" y="494" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">4</text>
+
+  <!-- GitHub -> Render -->
+  <rect x="780" y="715" width="290" height="55" rx="10" fill="#fff" stroke="#33384f"/>
+  <text x="925" y="739" text-anchor="middle" font-size="14" font-weight="700" fill="#20243a">GitHub (repositorio)</text>
+  <text x="925" y="758" text-anchor="middle" font-size="12" fill="#4a4f66">commits · .gitignore · README</text>
+  <line x1="925" y1="715" x2="925" y2="697" stroke="#33384f" stroke-width="1.8" marker-end="url(#a)"/>
+  <text x="935" y="708" font-size="11" fill="#33384f">despliegue automático</text>
+
+  <!-- Leyenda -->
+  <text x="40" y="722" font-size="13" font-weight="700" fill="#20243a">Flujo de una acción (clic en «Bien»):</text>
+  <text x="40" y="742" font-size="12" fill="#33384f">① clic → app.mjs   ② api.mjs hace fetch PUT /api/cards/:id   ③ ruta → validación → cards.json</text>
+  <text x="40" y="760" font-size="12" fill="#33384f">④ el servidor responde JSON con su código HTTP   ⑤ ui.mjs actualiza el DOM</text>
+  <text x="40" y="782" font-size="11" fill="#4a4f66">API externa: no se usa · Lighthouse y optimizaciones (gzip, caché, CSS minificado) se aplican sobre la URL publicada</text>
+</svg>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Organiza tus tarjetas de estudio y aprende a tu propio ritmo.">
+  <meta name="theme-color" content="#f6f7fb">
+  <title>Flashcards | Aprende a tu ritmo</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.min.css">
+  <script type="module" src="js/app.mjs"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body border-bottom sticky-top" aria-label="Navegación principal">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#inicio"><span class="brand-mark" aria-hidden="true">F</span> Flashcards</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir navegación"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><button class="nav-link active" data-view="study" aria-current="page">Estudiar</button></li>
+          <li class="nav-item"><button class="nav-link" data-view="library">Mis tarjetas</button></li>
+          <li class="nav-item"><button class="nav-link" data-view="add">Crear tarjeta</button></li>
+          <li class="nav-item ms-lg-2"><button id="theme-toggle" class="btn btn-outline-secondary btn-sm" type="button" aria-label="Cambiar tema">☾ Tema</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="inicio" class="container py-4 py-lg-5">
+    <section class="hero rounded-4 p-4 p-lg-5 mb-4">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <span class="eyebrow">TU ESPACIO DE APRENDIZAJE</span>
+          <h1 class="display-5 fw-bold mt-2 mb-3">Aprende un poco cada día.</h1>
+          <p class="lead mb-0">Crea tarjetas, repasa a tu ritmo y convierte unos minutos de estudio en grandes avances.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end"><div class="hero-illustration" aria-hidden="true">✦</div></div>
+      </div>
+    </section>
+
+    <section class="row g-3 mb-4" aria-label="Resumen de estudio">
+      <div class="col-6 col-lg-3"><article class="stat-card"><span class="stat-label">Total de tarjetas</span><strong id="stat-total">0</strong></article></div>
+      <div class="col-6 col-lg-3"><article class="stat-card"><span class="stat-label">Pendientes hoy</span><strong id="stat-due">0</strong></article></div>
+      <div class="col-6 col-lg-3"><article class="stat-card"><span class="stat-label">Dominadas</span><strong id="stat-mastered">0</strong></article></div>
+      <div class="col-6 col-lg-3"><article class="stat-card"><span class="stat-label">Progreso de hoy</span><strong id="stat-progress">0%</strong></article></div>
+    </section>
+
+    <div id="notice" class="alert d-none" role="status" aria-live="polite"></div>
+    <div id="loading" class="alert alert-info" role="status">Cargando tus tarjetas…</div>
+
+    <section id="view-study" class="app-view" aria-labelledby="study-title">
+      <div class="section-heading d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3">
+        <div><span class="eyebrow">SESIÓN DE HOY</span><h2 id="study-title" class="h3 mb-0 mt-1">Repaso inteligente</h2></div>
+        <span id="due-count" class="badge rounded-pill text-bg-primary">0 pendientes</span>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <article class="study-panel p-3 p-md-4 rounded-4">
+            <div class="d-flex justify-content-between align-items-center mb-3"><span class="small text-secondary">TARJETA ACTUAL</span><span id="box-label" class="badge text-bg-light">Nivel 1</span></div>
+            <div id="study-area" class="study-area" aria-live="polite">
+              <div class="empty-state"><div class="empty-icon">✎</div><h3 class="h5">Prepara tu primera tarjeta</h3><p class="text-secondary">Agrega una pregunta para comenzar a estudiar.</p></div>
+            </div>
+          </article>
+        </div>
+        <div class="col-lg-4">
+          <aside class="side-card p-4 rounded-4 h-100">
+            <h3 class="h5">Consejo de estudio</h3><p class="text-secondary">Intenta responder antes de mostrar la solución. La repetición espaciada ayuda a recordar mejor la información.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-library" class="app-view d-none" aria-labelledby="library-title">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3"><div><span class="eyebrow">TU CONTENIDO</span><h2 id="library-title" class="h3 mb-0 mt-1">Mis tarjetas</h2></div><span id="library-count" class="text-secondary small">0 tarjetas</span></div>
+      <div class="card border-0 shadow-sm rounded-4"><div class="card-body p-3 p-md-4">
+        <div class="row g-2 mb-3"><div class="col-md-8"><label for="search-input" class="form-label">Buscar tarjetas</label><input id="search-input" class="form-control" type="search" placeholder="Escribe una palabra clave"></div><div class="col-md-4"><label for="filter-select" class="form-label">Filtrar</label><select id="filter-select" class="form-select"><option value="all">Todas</option><option value="due">Pendientes</option><option value="mastered">Dominadas</option></select></div></div>
+        <div class="table-responsive"><table class="table align-middle"><thead><tr><th scope="col">Pregunta</th><th scope="col">Nivel</th><th scope="col">Próximo repaso</th><th scope="col" class="text-end">Acciones</th></tr></thead><tbody id="card-list"><tr><td colspan="4" class="text-center text-secondary py-4">Aún no hay tarjetas.</td></tr></tbody></table></div>
+      </div></div>
+    </section>
+
+    <section id="view-add" class="app-view d-none" aria-labelledby="add-title">
+      <div class="row justify-content-center"><div class="col-lg-8">
+        <div class="card border-0 shadow-sm rounded-4"><div class="card-body p-4 p-md-5">
+          <span class="eyebrow">AMPLÍA TU CONOCIMIENTO</span><h2 id="add-title" class="h3 mt-1">Crear una tarjeta</h2><p class="text-secondary">Escribe una pregunta clara y una respuesta que te ayude a recordar.</p>
+          <form id="add-form" novalidate>
+            <div class="mb-3"><label for="input-front" class="form-label">Pregunta</label><textarea id="input-front" class="form-control" rows="3" maxlength="300" required aria-describedby="front-help"></textarea><div id="front-help" class="form-text">Máximo 300 caracteres.</div><div class="invalid-feedback">Escribe una pregunta.</div></div>
+            <div class="mb-3"><label for="input-back" class="form-label">Respuesta</label><textarea id="input-back" class="form-control" rows="3" maxlength="600" required aria-describedby="back-help"></textarea><div id="back-help" class="form-text">Máximo 600 caracteres.</div><div class="invalid-feedback">Escribe una respuesta.</div></div>
+            <div class="d-flex flex-wrap gap-2"><button class="btn btn-primary px-4" type="submit">Guardar tarjeta</button><button class="btn btn-outline-secondary" type="reset">Limpiar</button></div>
+          </form>
+        </div></div>
+      </div></div>
+    </section>
+
+    <footer class="text-center text-secondary small pt-5">Flashcards · Herramienta académica de apoyo al aprendizaje<br><button id="clear-data" type="button" class="btn btn-link btn-sm text-secondary">Borrar datos guardados en este navegador</button></footer>
+  </main>
+
+  <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="edit-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content rounded-4"><form id="edit-form"><div class="modal-header"><h2 id="edit-title" class="modal-title fs-5">Editar tarjeta</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div><div class="modal-body"><input id="edit-id" type="hidden"><div class="mb-3"><label for="edit-front" class="form-label">Pregunta</label><textarea id="edit-front" class="form-control" rows="3" maxlength="300" required></textarea></div><div><label for="edit-back" class="form-label">Respuesta</label><textarea id="edit-back" class="form-control" rows="3" maxlength="600" required></textarea></div></div><div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button><button type="submit" class="btn btn-primary">Guardar cambios</button></div></form></div></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
+</body>
+</html>
